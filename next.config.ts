@@ -11,6 +11,17 @@ const nextConfig: NextConfig = {
 				pathname: '/images/**'
 			}
 		]
+	},
+	// Exclude studio-blog directory from Next.js build
+	webpack: (config) => {
+		config.resolve.alias = {
+			...config.resolve.alias
+		};
+		return config;
+	},
+	// Ignore studio-blog during build
+	experimental: {
+		outputFileTracingIgnores: ['**/studio-blog/**']
 	}
 };
 
