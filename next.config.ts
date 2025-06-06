@@ -18,10 +18,6 @@ const nextConfig: NextConfig = {
 			...config.resolve.alias
 		};
 		return config;
-	},
-	// Ignore studio-blog during build
-	experimental: {
-		outputFileTracingIgnores: ['**/studio-blog/**']
 	}
 };
 
