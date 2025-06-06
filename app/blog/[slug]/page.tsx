@@ -18,13 +18,13 @@ async function getData(slug: string) {
 export default async function BlogArtical({
 	params
 }: {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 }) {
-	const { slug } = params;
+	const { slug } = await params;
 	const data: BlogArticle = await getData(slug);
 	console.log(data); // Consider removing for production
 	if (!data) {
-		// return <h1>Blog post not found</h1>;
+		return <h1>Blog post not found</h1>;
 	}
 	return (
 		<div className='container mx-auto px-4 py-8'>

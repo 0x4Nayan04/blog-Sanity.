@@ -10,5 +10,8 @@ export interface BlogArticle {
 	aiSummary: string;
 	title: string;
 	currentThumbnail: string;
-	content: unknown[]; // Adjust type as needed, e.g., string or a more complex type
+	content: Array<{
+		_type: string;
+		[key: string]: unknown;
+	}>;
 }
